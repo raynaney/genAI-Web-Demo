@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI‑Generated Skybox Demo</title>
+    <style>
+      /* Global layout */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #000; /* black background */
+        color: #fff;     /* white text for contrast */
+        font-family: Calibri, Arial, sans-serif; /* Calibri first */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      h1 {
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      #description {
+        max-width: 720px;
+        text-align: center;
+        line-height: 1.4;
+        margin: 0 1rem 1.5rem;
+      }
+
+      #skybox-container {
+        width: 700px;
+        height: 700px;
+      }
+
+      #skybox-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AI‑Generated Skybox Demo</h1>
+
+    <p id="description">
+     Look around for yourself at the immersive environment generated in the video. Click or tap inside the scene to look around where you can drag to change your view.
+    </p>
+
+    <div id="skybox-container"></div>
+
+    <script>
+      (function addSkybox() {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://skybox.blockadelabs.com/e/bd51b3ff74b7ba37c469eeda615ede32";
+        iframe.allow = "fullscreen";
+        iframe.width = 700;
+        iframe.height = 700;
+        iframe.style.border = "0";
+
+        document.getElementById("skybox-container").appendChild(iframe);
+      })();
+    </script>
+  </body>
+</html>
