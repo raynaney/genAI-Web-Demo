@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <title>AI‑Generated Skybox Demo</title>
     <style>
-      /* Global layout */
       html,
       body {
         margin: 0;
         padding: 0;
+		padding-bottom: 20px;
         height: 100%;
-        background: #000; /* black background */
-        color: #fff;     /* white text for contrast */
-        font-family: Calibri, Arial, sans-serif; /* Calibri first */
+        background: #000;
+        color: #fff;
+        font-family: Calibri, Arial, sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -32,12 +32,13 @@
         margin: 0 1rem 1.5rem;
       }
 
-      #skybox-container {
+      .skybox-container {
         width: 700px;
         height: 700px;
+        margin-bottom: 2rem;
       }
 
-      #skybox-container iframe {
+      .skybox-container iframe {
         width: 100%;
         height: 100%;
         border: 0;
@@ -46,32 +47,45 @@
   </head>
   <body>
     <h1>AI‑Generated Skybox Demo</h1>
-	<p class="description">
-    In the video below, you can see how the user says aloud what they would like to see, sends the prompt, and shortly after, an AI generated world is formed. <i> Note: the loading time has been cut down from 40 seconds to 10 seconds for the sake of the video </i>
-    </p>
-	
-	<video controls width="600">
-	<source src="demo.mp4" type="video/mp4">
-	Your browser does not support the video tag.
-	</video>
 
     <p class="description">
-     Look around for yourself at the immersive environment generated in the video. Click or tap inside the scene to look around where you can drag to change your view.
+      In the video below, you can see how the user says aloud what they would like to see, sends the prompt, and shortly after, an AI generated world is formed.
+      <i>Note: the loading time has been cut down from 40 seconds to 10 seconds for the sake of the video.</i>
     </p>
 
-    <div id="skybox-container"></div>
+    <video controls width="600">
+      <source src="demo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="description">
+      Look around for yourself at the immersive environment generated in the video. Drag your finger or cursor around the scene below to change the view.
+    </p>
+
+    <div class="skybox-container" id="skybox-1"></div>
+
+    <p class="description">The possibilities are practically limitless. Below is another skybox, this time with the prompt: <b>A Japanese castle surrounded by cherry blossoms and colorful trees, with Mount Fuji and clouds in the background under a bright blue sky</b></p>
+
+    <div class="skybox-container" id="skybox-2"></div>
+	
+	 <p class="description">As you can see, there are two of Mount Fuji, which is not the user's intent. Misalignment should be weighed against the benefits for using genAI in wellness applications</p>
 
     <script>
-      (function addSkybox() {
+      function addSkybox(id, url) {
         const iframe = document.createElement("iframe");
-        iframe.src = "https://skybox.blockadelabs.com/e/bd51b3ff74b7ba37c469eeda615ede32";
+        iframe.src = url;
         iframe.allow = "fullscreen";
-        iframe.width = 700;
-        iframe.height = 700;
+        iframe.style.width = "700px";
+        iframe.style.height = "700px";
         iframe.style.border = "0";
+        document.getElementById(id).appendChild(iframe);
+      }
 
-        document.getElementById("skybox-container").appendChild(iframe);
-      })();
+      addSkybox("skybox-1", "https://skybox.blockadelabs.com/e/bd51b3ff74b7ba37c469eeda615ede32");
+      addSkybox("skybox-2", "https://skybox.blockadelabs.com/e/d5c7f79fdb29e4cc6e455cdef366cd22");
     </script>
+	 <footer style="margin: 20px; color: #aaa; font-size: 0.9rem; text-align: center;">
+      &copy; 2025 Mobiliar Lab for Analytics. Made with ♡ by Rayna.
+    </footer>
   </body>
 </html>
